@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+<script src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=XLbjV6V9L9GZxTO-Jb4UUG7Nj0YCULyp_gLqMc2rQRN_mUkplZ4UgoPgzKXhsLtufD7TUMQ8sxPkw2wOyP99_45cpwPJTFhrVfByaa4KwveOY05ZlcGvgljTpUjcVRRVIh-BTt3SX2y_pYLNNJxWc0bBvw0SolvW6LKFax3071_663iCuPljLtp3xVPzm1Z27nxSxErgbLq4-hMxvqgGZcbzBJ_v2VnIrXMDkSiAOu__UrSkEqbj0gVu1T2sDZ8U9lxXtjEmwCziQOwpx50hO1udPMLN9XnRqnFmCqJIBnDyc-nmyeuYJ-5-xskCDbADKg3Cc77G8f8fmqDqPbP5PARwHCBoG5uZ7amPmpQCDHhUxb7Br4ZV4fFP38LOvGAmGNpIXKLE7jTdUD9IQgdnPbfPhKQmbIXIwS6JqlIGSrUmJMXnImS9vyf3WnhEHVXu6M47c-d00Kl69gsCk5lDrxKRmgDtkzE3d5I8evQ8Q2gJbectWUtvMyf9XPtQC-ojzhKS3JXIhzv1KaPmgSgVgM2qs1UM8FG9ZG5YZig0EvZzVdlm5TAgp_iPWk1QyeWE0mUV23Q25mpg5urFiM17pZAUHt4yowRih3x0L2TpC2Uylr34DBZT8VDCj28DGoJ-JvC9iCo0toIz27E4e1CWlAqfPrETKuaXGd_a5kCleful3-srJ9kv75EY9DxRrfVO3Z-xdgl8Tn_JUFeeFMMwnrJq9R9ax09VRFbLjKaXLh6thSUoF3uyWHukG_b5XJx-kOvO8wk22CmlE2-lA3zd5vxpb8qOAxJ0VKFYW-K5Q3fctDfPAbjcEHauuEqdXiRaRnTDGgFEuX8iWI33VeZKd0cLbrU4FgBYJrnXYK1IqcKyYVoArkhqZxHpjOynSqeuJA0VoW46mJDrtyTBGM6W_yq6MTqZ03c1ULlOEQgrxTrcQV7wqPTML7OIV2jmCOx1gAHgHpDvJqCtDKLsoHdDEtes58qiIooyHRYAfxJo4HwLOCwRBhQ9Kcx7dSjXKoNYB6fkh2vBPchRdH2fCL0R1mWMRXIGIAFrhJvT6BZNt9ngxzhtmChqelldYSMFzBbtDBAgmGf3GF32B9dhV8mwViM3n4pTdBe97GFQd2GFMYCBHJ4IrQ2gklMQE_u7NglIGt3jVSXp91mQEOI1uFiUwLejH9dAhIJFDQoEsWi3ZbCXWJVJbsqzvMIDF5euu2QKHZVKi9yciGQhX7E1nBEZ5w"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<title>Weather Finder</title>
+</head>
+<body>
+
+<div class=movieswraper>
+    
+    <!-- Container -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12 heading">
+                <h1>Welcome to Weather Finder</h1><small></small>
+            </div>
+            <div class="col-12 col-md-3">
+                <div class="form-group">
+                      <input type="number" class="form-control" id="zipcode" name="zipcode" placeholder="Enter Zip Code">
+                       <input type="text" class="form-control" id="countrycode" name="countrycode" placeholder="Enter Country Code">
+                </div>
+                <div class="form-group">
+                     
+                      <button   onclick="myFunction()" class="btn btn-deault form-control" name="submit">FIND WEATHER</button>
+                </div>
+        
+            </div>
+
+        </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <span id="loader"></span>
+                    <div class="card" style="width: 18rem;">
+                      <div class="card-body">
+                      
+                      <strong>Weather Condition:</strong>  <span id="description"></span>
+                      <br> 
+                      <strong>Temprature:</strong>  <span id="temp"></span>
+                      <br>
+                      <strong>Location:</strong>  <span id="location"></span>
+                 
+                    </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!-- Container -->
+
+</div> 
+<!-- Movies Wraper -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+   
+    <script src="script.js"></script>
+  </body>
+</html>
